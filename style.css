@@ -51,12 +51,12 @@ li {
 
 .prompt_title {
     font-family: "Indie Flower", Arial;
-    font-size: 20px;
+    font-size: 26px;
 }
 
 .prompt_title_local {
     font-family: "Indie Flower", Arial;
-    font-size: 20px;
+    font-size: 26px;
 	color: green;
 	font-weight: bold;
 	text-decoration: underline;
@@ -117,12 +117,12 @@ li {
 }
 
 .swiper {
-    width: 35%;
+    width: 25%;
     margin-top: 30px;
 }
 
 .swiper-wrapper {
-    height: 70%;
+    height: 75%;
 }
 
 .swiper-slide img {
