@@ -117,7 +117,7 @@ li {
 }
 
 .swiper {
-    width: 25%;
+    width: 30%;
     margin-top: 30px;
 }
 
@@ -131,4 +131,37 @@ li {
 
 .swiper-slide video {
     width: 100%;
+}
+
+.intro-paragraph {
+    width: 100%;
+}
+
+.intro-paragraph p {
+    width: 100%;
+    font-size: 20px;
+}
+
+.intro-container {
+    width: 55%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.abstract-container {
+    width: 55%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.method-container {
+    width: 55%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.ack-container {
+    width: 55%;
+    margin: 0 auto;
+    margin-bottom: 30px;
 }
