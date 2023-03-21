@@ -5,17 +5,21 @@ body {
 h1 {
     font-family: "Noto Sans", Arial;
     font-size: 52px;
-    color: rgb(72, 72, 72);
+    color: rgb(95, 95, 95);
     letter-spacing: -1px;
     word-spacing: 8px;
 	line-height: 0px;
 	margin-top: 60px;
+    font-weight: bold;
 }
 
 h2 {
     font-family: "Noto Sans", Arial;
     font-size: 35px;
-    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
 }
 
 h3 {
@@ -87,23 +91,31 @@ li {
 }
 
 .affiliations {
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .publication-links{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .link-block a {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+}
+
+.link-block {
+    text-decoration: none;
+    font-size: 22px;
+    color: rgb(0, 0, 0);
 }
 
 .button {
-    padding: 12px 16px;
+    padding: 16px 14px;
     background-color: white;
-    border-radius: 20px;
-    font-size: 17px;
+    border-radius: 24px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
     border: 2px solid rgb(135, 134, 134);
 }
 
@@ -154,6 +166,10 @@ li {
     margin-bottom: 30px;
 }
 
+.abstract-container p {
+    font-size: 18px;
+}
+
 .method-container {
     width: 55%;
     margin: 0 auto;
@@ -164,4 +180,21 @@ li {
     width: 55%;
     margin: 0 auto;
     margin-bottom: 30px;
+}
+
+.bib-container {
+    width: 55%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.code-container {
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+}
+
+.bib-container code {
+    color: black;
+    font-size: 16px;
+    background-color: rgb(240, 240, 240);
 }

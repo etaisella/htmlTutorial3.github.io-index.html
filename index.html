@@ -8,6 +8,7 @@
 <!--    <link rel="icon" href="../pics/wis_logo.jpg">-->
     <link rel="icon" href="images/browser_icon.png">
     <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
@@ -24,8 +25,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <!-- title -->
-    <h1 align="center">Vox-E</h1>
-    <h2 align="center">Text-guided Voxel Editing of 3D Objects</h2>
+    <h1 class="ourh1" align="center">Vox-E</h1>
+    <h2 class="ourh2" align="center">Text-guided Voxel Editing of 3D Objects</h2>
 
     <!-- authors and affiliations -->
     <section class="authors_block">
@@ -69,6 +70,18 @@
                   </button>
             <!-- </a> -->
           </span>
+
+          <!-- Supp Link. -->
+          <span class="link-block">
+            <a href="https://etaisella.github.io/htmlTutorial2.github.io-index.html">
+                <button class="button">
+                    <span class="icon">
+                        <i class="fa fa-plus-square"></i>
+                    </span>
+                    <span>Supplementary Material</span>
+                  </button>
+            </a>
+          </span>
         </div>
     </div>
 
@@ -83,7 +96,7 @@
             <table class="slide-table" width="100%" align="center">
                 <tbody>
                     <tr>
-                        <th colspan="2" width="90%" class="prompt_title_local">"A kangaroo on rollerskates"</th>
+                        <th colspan="2" width="90%" class="prompt_title_local" align="center">"A kangaroo on rollerskates"</th>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -108,7 +121,7 @@
             <table class="slide-table" width="100%" align="center">
                 <tbody>
                     <tr>
-                        <th colspan="2" width="90%" class="prompt_title">"A dog in low-poly video game style"</th>
+                        <th colspan="2" width="90%" class="prompt_title" align="center">"A dog in low-poly video game style"</th>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -133,7 +146,7 @@
             <table class="slide-table" width="100%" align="center">
                 <tbody>
                     <tr>
-                        <th colspan="2" width="90%" class="prompt_title_local">"An alien wearing a tuxedo"</th>
+                        <th colspan="2" width="90%" class="prompt_title_local" align="center">"An alien wearing a tuxedo"</th>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -158,7 +171,7 @@
             <table class="slide-table" width="100%" align="center">
                 <tbody>
                     <tr>
-                        <th colspan="2" width="90%" class="prompt_title">"A black swan"</th>
+                        <th colspan="2" width="90%" class="prompt_title" align="center">"A black swan"</th>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -183,7 +196,7 @@
             <table class="slide-table" width="100%" align="center">
                 <tbody>
                     <tr>
-                        <th colspan="2" width="90%" class="prompt_title_local">"A cactus in a pot"</th>
+                        <th colspan="2" width="90%" class="prompt_title_local" align="center">"A cactus in a pot"</th>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -228,10 +241,10 @@
 
     <!-- abstract -->
     <section class="abstract-section" width="100%">
-        <div class="abstract-container">
+        <div class="abstract-container has-text-justified">
             <hr>
             <h2 align="center">Abstract</h2>
-            <p>
+            <p class="has-text-justified">
                 Large scale text-guided diffusion models have garnered significant attention due to their ability to synthesize diverse images that convey complex visual concepts. 
                 This generative power has more recently been leveraged to perform text-to-3D synthesis. 
                 In this work, we present a technique that harnesses the power of latent diffusion models for editing existing 3D objects.
@@ -250,38 +263,54 @@
     <section class="method-section" width="100%">
         <div class="method-container">
             <hr>
-            <h2 align="center">How does it Work?</h2>
-            <div class="im_container" width="90%" align="center">
+            <h2 align="center">How does it work?</h2>
+            <div class="im_container has-text-justified" width="90%" align="center">
                 <img align="center" src="images/overview_official.png" alt="Overview" width="100%">
             </div>            
-            <p>
-                Given a set of posed multi-view images of an object (for example a kangaroo) we start by learning a 3D voxel-grid based 
-                representation which reconstructs the object depicted in the images. We then begin iteratively editing this voxel-grid according
-                to a given text prompt (for example "a kangaroo on rollerskates") using Score Distillation Sampling. We regularize this process 
-                at each iteration by encouraging similarity between the structure of the edited grid and the original object reconstructing grid.
-                While producing good results for a variety of edits, this method does not support hyper-localized edits where nothing changes except for 
-                a specific part of the object. To account for this, we introduce an additional, optional, stage we call the "Refinement Stage". In this 
-                stage we extract cross-attention maps from a Latent Diffusion Model (LDM) for the edit word token (i.e. "rollerskates") and the object 
-                related tokens (i.e "a kangaroo") to train volumetric "attention grids" for the edit and object. Using these grids we estimate a 
-                volumetric mask which labels each voxel in the edited grid as either "object" or "edit" and use this mask to replace all the "object"
-                labled voxels with the matching voxels in the initial reconstruction grid.
-
+            <p class="has-text-justified">
+                Given a set of posed multi-view images of an object (for example a dog in the example above) we first model the 
+                scene as a voxel grid where each voxel contains learned features (denoted as the "Initial Feature Grid" above). 
+                We then perform text-guided object editing by carefully applying a score distillation loss on an edited voxel grid. 
+                Our key idea is to regularize this process in 3D space by encouraging similarity between the structure of the 
+                edited grid and the initial grid. To further refine the spatial extent of the edits, we introduce an (optional) 
+                refinement stage that utilizes 2D cross-attention maps which roughly capture regions associated with the target 
+                edit and lift them to volumetric grids. We then use these 3D cross-attention grids as a signal for a binary 
+                volumetric segmentation algorithm that splits the reconstructed volume into edited and non-edited regions, 
+                allowing for merging the features of the volumetric grids to better preserve regions that should not be affected 
+                by the textual edit.
             </p>
 
+        </div>
+    </section>
+
+    <!-- BibTex -->
+    <section class="bib-section is-light" width="100%">
+        <div class="bib-container is-max-desktop content">
+            <hr>
+            <h2 align="center">BibTeX</h2>
+            <div class="code-container">
+                <code>
+                    @article{sella2023voxe, <br>
+                        &emsp;&emsp;title={Vox-E: Text-guided Voxel Editing of 3D Objects}, <br>
+                        &emsp;&emsp;author={Etai Sella and Gal Fiebelman and Peter Hedman and Hadar Averbuch-Elor},<br>
+                        &emsp;&emsp;journal={???}, <br>
+                        &emsp;&emsp;year={2023} <br>
+                    }
+                </code>
+            </div> 
         </div>
     </section>
 
     <!-- Acknowledgements -->
-    <section class="ack-section" width="100%">
-        <div class="ack-container">
-            <hr>
-            <h2 align="center">Acknowledgements</h2>
-            <p>
-                We would like to acknowledge such and such for this and that.
-            </p>
-
-        </div>
-    </section>
+    <!-- <section class="ack-section" width="100%"> -->
+    <!--     <div class="ack-container"> -->
+    <!--         <hr> -->
+    <!--         <h2 align="center">Acknowledgements</h2> -->
+    <!--         <p> -->
+    <!--             We would like to acknowledge such and such for this and that. -->
+    <!--         </p> -->
+    <!--     </div> -->
+    <!-- </section> -->
 
   <p><br>
   </p>
