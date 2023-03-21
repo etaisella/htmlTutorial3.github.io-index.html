@@ -158,7 +158,7 @@
             <table class="slide-table" width="100%" align="center">
                 <tbody>
                     <tr>
-                        <th colspan="2" width="90%" class="prompt_title_local">"A black swan"</th>
+                        <th colspan="2" width="90%" class="prompt_title">"A black swan"</th>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -218,10 +218,9 @@
         <div class="intro-container">
             <div class="intro-paragraph">
                 <p>
-                    Given multiview images of an object, our technique enables generating volumetric edits from target text prompts. The
-                    objects can be edited either locally (presented with a <span class="prompt_title_local">green</span> prompt) or globally, 
-                    depending on the nature of the user-provided text prompt.
-                    Our technique enables for incorporating significant geometric and appearance changes, while faithfully preserving the input object.
+                    Given multiview images of an object, our technique generates volumetric edits from target text prompts, allowing for 
+                    significant geometric and appearance changes, while faithfully preserving the input object. 
+                    The objects can be edited either globally or locally (local edits are emphasized in <span class="prompt_title_local">green</span>).
                 </p>
             </div>
         </div>
@@ -231,30 +230,19 @@
     <section class="abstract-section" width="100%">
         <div class="abstract-container">
             <hr>
-            <h2 align="left">Abstract</h2>
-            <table class="abstract-table" width="100%" align="center" margin-top="-23px">
-                <tbody>
-                    <tr>
-                        <td width="75%" align="left">
-                            <p>
-                                Large scale text-guided diffusion models have garnered significant attention due to their ability to synthesize diverse images that convey complex visual concepts. 
-                                This generative power has more recently been leveraged to perform text-to-3D synthesis. 
-                                In this work, we present a technique that harnesses the power of latent diffusion models for editing existing 3D objects.
-                                Our method takes oriented 2D images of a 3D object as input and learns a grid-based volumetric representation of it.
-                                To guide the volumetric representation to conform to a target text prompt, we follow unconditional text-to-3D methods and optimize a Score Distillation Sampling (SDS) loss. 
-                                However, we observe that combining this diffusion-guided loss with an image-based regularization loss that encourages the representation not to deviate too strongly from the input object
-                                is challenging, as it requires achieving two conflicting goals while viewing only structure-and-appearance coupled 2D projections. 
-                                Thus, we introduce a novel volumetric regularization loss that operates directly in 3D space, utilizing the explicit nature of our 3D representation to enforce correlation between the global structure of the original and edited object. 
-                                Furthermore, we present a technique that optimizes cross-attention volumetric grids to refine the spatial extent of the edits.
-                                Extensive experiments and comparisons demonstrate the effectiveness of our approach in creating a myriad of edits  which cannot be achieved by prior works.
-                            </p>
-                        </td>
-                        <td width="25%" align="center">
-                            <img src="images/paper_thumbnail_cropped.png" alt="Paper Thumbnail" width="80%">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2 align="center">Abstract</h2>
+            <p>
+                Large scale text-guided diffusion models have garnered significant attention due to their ability to synthesize diverse images that convey complex visual concepts. 
+                This generative power has more recently been leveraged to perform text-to-3D synthesis. 
+                In this work, we present a technique that harnesses the power of latent diffusion models for editing existing 3D objects.
+                Our method takes oriented 2D images of a 3D object as input and learns a grid-based volumetric representation of it.
+                To guide the volumetric representation to conform to a target text prompt, we follow unconditional text-to-3D methods and optimize a Score Distillation Sampling (SDS) loss. 
+                However, we observe that combining this diffusion-guided loss with an image-based regularization loss that encourages the representation not to deviate too strongly from the input object
+                is challenging, as it requires achieving two conflicting goals while viewing only structure-and-appearance coupled 2D projections. 
+                Thus, we introduce a novel volumetric regularization loss that operates directly in 3D space, utilizing the explicit nature of our 3D representation to enforce correlation between the global structure of the original and edited object. 
+                Furthermore, we present a technique that optimizes cross-attention volumetric grids to refine the spatial extent of the edits.
+                Extensive experiments and comparisons demonstrate the effectiveness of our approach in creating a myriad of edits  which cannot be achieved by prior works.
+            </p>
         </div>
     </section>
 
@@ -262,8 +250,10 @@
     <section class="method-section" width="100%">
         <div class="method-container">
             <hr>
-            <h2 align="left">How it Works</h2>
-            <img src="images/overview_official.png" alt="Overview" width="90%">
+            <h2 align="center">How does it Work?</h2>
+            <div class="im_container" width="90%" align="center">
+                <img align="center" src="images/overview_official.png" alt="Overview" width="100%">
+            </div>            
             <p>
                 Given a set of posed multi-view images of an object (for example a kangaroo) we start by learning a 3D voxel-grid based 
                 representation which reconstructs the object depicted in the images. We then begin iteratively editing this voxel-grid according
@@ -285,7 +275,7 @@
     <section class="ack-section" width="100%">
         <div class="ack-container">
             <hr>
-            <h2 align="left">Acknowledgements</h2>
+            <h2 align="center">Acknowledgements</h2>
             <p>
                 We would like to acknowledge such and such for this and that.
             </p>
